@@ -40,7 +40,7 @@ var projectPath = {
         img: 'build/img/'
     },
     Src: { // Set source paths
-        jade: ['src/jade/*.jade'],
+        jade: 'src/jade/**/*.jade',
         jsCustom: 'src/js/custom.js',
         jsVendor: 'src/js/vendor.js',
         style: 'src/less/style.less',
@@ -92,7 +92,7 @@ gulp.task('jade', function() {
             pretty: true
         }))
         .pipe(prettify({indent_size: 2}))
-        .pipe(gulp.dest(projectPath.Build.Html))
+        .pipe(gulp.dest(projectPath.Build.html))
         .pipe(reload({stream: true}));
 });
 
