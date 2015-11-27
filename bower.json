@@ -1,0 +1,24 @@
+{
+  "name": "RUSWOOD",
+  "description": "RUSWOOD - promo-site",
+  "main": "index.js",
+  "authors": [
+    "Vadik Matveev"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.6",
+    "animate.css": "~3.4.0"
+  }
+}
