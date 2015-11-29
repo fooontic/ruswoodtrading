@@ -55,7 +55,8 @@ var projectPath = {
         img: 'src/img/**/*.*'
     },
     clean: ['build/**/*', '!build/.gitignore', '!build/humans.txt'], // Set paths and exludes for cleaning build dir
-    ghPages: 'build/**/*' // Set dir that will be uploaded to GitHub Pages
+    ghPages: 'build/**/*', // Set dir that will be uploaded to GitHub Pages
+    remoteUrl: 'https://github.com/fooontic/ruswoodtrading.git'
 };
 
 /* BrowserSync local web server settings */
@@ -185,6 +186,10 @@ gulp.task('build', function(callback) {
 /* Github Pages */
 gulp.task('gh-pages', function() {
     return gulp.src(projectPath.ghPages)
+        .pipe(plumber(function(error) {
+            gutil.log(gutil.colors.red(error.message));
+            this.emit('end');
+        }))
         .pipe(ghPages());
 });
 
