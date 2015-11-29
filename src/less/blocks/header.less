@@ -1,0 +1,57 @@
+.header {
+	padding: 40px 0 40px;
+
+	&__contacts {
+		text-align: right;
+	}
+
+	&__phone, &__btn {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__phone{
+		color: @green;
+		font-size: 30px;
+		line-height: 50px;
+		text-decoration: none;
+		margin-right: 30px;
+
+		&:hover, &:visited, &:active, &:focus {
+			text-decoration: none;
+			color: @green;
+			cursor: default;
+			outline: none;
+		}
+	}
+
+	&__btn {
+		color: #fff;
+		background-color: @red;
+		padding: 0 50px;
+		line-height: 42px;
+		border-radius: 21px;
+		transition: all .6s;
+
+		&:hover, &:visited, &:active, &:focus {
+			text-decoration: none;
+			color: #fff;
+			outline: none;
+		}
+
+		&:hover {
+			background-color: darken(@red, 10%);
+			box-shadow: 0 3px 0 0 darken(@red, 30%);
+			transition: all .2s;
+		}
+
+		&:active {
+			position: relative;
+			top: 3px;
+			box-shadow: none;
+			transition: all .2s;
+		}
+	}
+
+
+}

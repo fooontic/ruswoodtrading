@@ -1,0 +1,54 @@
+.footer {
+	padding-bottom: 30px;
+
+	&__text {
+		font-size: 42px;
+		line-height: 50px;
+		margin: 1.7em 0 .3em;
+	}
+
+	&__phone, &__mail {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 82px;
+		line-height: 1.4em;
+		text-decoration: none;
+		color: @green;
+		outline: none;
+
+		&:hover, &:visited, &:active, &:focus {
+			text-decoration: none;
+		}
+
+	}
+
+	&__phone {
+		&:hover, &:visited, &:active, &:focus {
+			color: @green;
+			cursor: default;
+			outline: none;
+		}
+	}
+
+	&__phone span {
+		font-size: .5em;
+		line-height: 1em;
+		display: block;
+	}
+
+	&__mail {
+		border-bottom: 1px solid;
+		margin-bottom: 100px;
+
+		&:hover {
+			color: darken(@green, 20%);
+		}
+	}
+
+
+
+	&__copyright {
+		color: #666;
+		font-size: 13px;
+	}
+}

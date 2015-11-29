@@ -28,6 +28,8 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
+    "imagemin-pngquant": "^4.2.0",
+    "path":"^0.12.7 ",
     "run-sequence": "^1.1.5",
     "streamqueue": "^1.1.1"
   }

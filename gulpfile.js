@@ -12,6 +12,7 @@ var gulp = require('gulp'), // Task runner
 	del = require('del'), // Delete something
 	browserSync = require("browser-sync"), // Synchronised browser testing
 	less = require('gulp-less'), // Compile Less to CSS
+    path = require('path'),
 	sourcemaps = require('gulp-sourcemaps'), // Write source maps
 	lessReporter = require('gulp-less-reporter'), // Error reporter for gulp-less
 	autoprefixer = require('gulp-autoprefixer'), // Prefix CSS
@@ -23,6 +24,7 @@ var gulp = require('gulp'), // Task runner
 	streamqueue = require('streamqueue'), // Pipe queued streams progressively, keeping datas order.
 	reload = browserSync.reload,
 	imagemin = require('gulp-imagemin'), // Optimize images
+    pngquant = require('imagemin-pngquant'), // PNG plugin for ImageMin
 	gutil = require('gulp-util'),
 	plumber = require('gulp-plumber'), // Report errors from gulp-plugins
 	ghPages = require('gulp-gh-pages'), // Publish contents to Github pages
@@ -99,7 +101,7 @@ gulp.task('jade', function() {
 
 /* Less */
 gulp.task('less', function() {
-    return gulp.src(projectPath.Src.style)
+    return gulp.src('src/less/style.less')
         .pipe(sourcemaps.init())
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
@@ -152,7 +154,7 @@ gulp.task('images', function () {
         .pipe(size({
             title: 'Images'
         }))
-        .pipe(gulp.dest(projectPath.build.img))
+        .pipe(gulp.dest(projectPath.Build.img))
         .pipe(reload({stream: true}));
 });
 
