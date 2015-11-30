@@ -55,8 +55,7 @@ var projectPath = {
         img: 'src/img/**/*.*'
     },
     clean: ['build/**/*', '!build/.gitignore', '!build/humans.txt'], // Set paths and exludes for cleaning build dir
-    ghPages: 'build/**/*', // Set dir that will be uploaded to GitHub Pages
-    remoteUrl: 'https://github.com/fooontic/ruswoodtrading.git'
+    ghPages: 'build/**/*' // Set dir that will be uploaded to GitHub Pages
 };
 
 /* BrowserSync local web server settings */
