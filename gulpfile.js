@@ -9,6 +9,8 @@ var gulp = require('gulp'), // Task runner
 	watch = require('gulp-watch'), // Watch, that actually is an endless stream
 	rename = require("gulp-rename"), // Rename files
 	size = require('gulp-size'), // Display the size of something
+    rigger = require('gulp-rigger'), // // Include content of one file to another
+    concat = require('gulp-concat'), // Concatenates files
 	del = require('del'), // Delete something
 	browserSync = require("browser-sync"), // Synchronised browser testing
 	less = require('gulp-less'), // Compile Less to CSS
@@ -21,6 +23,9 @@ var gulp = require('gulp'), // Task runner
 	jade = require('gulp-jade'), // Compile Jade to HTML
 	newer = require('gulp-newer'),
 	prettify = require('gulp-prettify'),
+    jshint = require('gulp-jshint'), // JS code linter
+    stylish = require('jshint-stylish'), // Reporter for JSHint
+    uglify = require('gulp-uglify'), // Minify JS
 	streamqueue = require('streamqueue'), // Pipe queued streams progressively, keeping datas order.
 	reload = browserSync.reload,
 	imagemin = require('gulp-imagemin'), // Optimize images
@@ -43,8 +48,9 @@ var projectPath = {
     },
     Src: { // Set source paths
         jade: 'src/jade/**/*.jade',
-        jsCustom: 'src/js/custom.js',
-        jsVendor: 'src/js/vendor.js',
+        // jsCustom: 'src/js/custom.js',
+        // jsVendor: 'src/js/vendor.js',
+        js: 'src/js/**/*.js',
         style: 'src/less/style.less',
         img: 'src/img/**/*.*'
     },
@@ -121,25 +127,25 @@ gulp.task('less', function() {
 });
 
 
-// /* JavaScript*/
-// gulp.task('js', function () {
-//     return streamqueue(
-//         { objectMode: true },
-//         gulp.src(projectPath.src.jsVendor).pipe(rigger()).pipe(size({title: 'Vendor JavaScript'})),
-//         gulp.src(projectPath.src.jsCustom).pipe(rigger()).pipe(jshint()).pipe(jshint.reporter(stylish)).pipe(size({title: 'Custom JavaScript'}))
-//     )
-//         .pipe(concat(projectPath.build.jsMainFile))
-//         .pipe(sourcemaps.init())
-//         .pipe(gulp.dest(projectPath.build.js))
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(uglify())
-//         .pipe(sourcemaps.write('./'))
-//         .pipe(size({
-//             title: 'Total JavaScript'
-//         }))
-//         .pipe(gulp.dest(projectPath.build.js))
-//         .pipe(reload({stream: true}));
-// });
+/* JavaScript*/
+gulp.task('js', function () {
+    return streamqueue(
+        { objectMode: true },
+        // gulp.src(projectPath.src.js).pipe(rigger()).pipe(size({title: 'JavaScript'})),
+        gulp.src(projectPath.Src.js).pipe(rigger()).pipe(jshint()).pipe(jshint.reporter(stylish)).pipe(size({title: 'JavaScript'}))
+    )
+        .pipe(concat(projectPath.Build.jsMainFile))
+        .pipe(sourcemaps.init())
+        .pipe(gulp.dest(projectPath.Build.js))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
+        .pipe(size({
+            title: 'Total JavaScript'
+        }))
+        .pipe(gulp.dest(projectPath.Build.js))
+        .pipe(reload({stream: true}));
+});
 
 
 /* Images */

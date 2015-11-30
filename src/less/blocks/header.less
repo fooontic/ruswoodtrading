@@ -26,12 +26,14 @@
 	}
 
 	&__btn {
+		position: relative;
 		color: #fff;
 		background-color: @red;
 		padding: 0 50px;
 		line-height: 42px;
 		border-radius: 21px;
 		transition: all .6s;
+		top: 0;
 
 		&:hover, &:visited, &:active, &:focus {
 			text-decoration: none;
@@ -46,9 +48,9 @@
 		}
 
 		&:active {
-			position: relative;
 			top: 3px;
-			box-shadow: none;
+			background-color: darken(@red, 15%);
+			box-shadow: 0 -3px 0 0 darken(@red, 30%);
 			transition: all .2s;
 		}
 	}

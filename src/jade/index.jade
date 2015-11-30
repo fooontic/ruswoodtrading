@@ -31,29 +31,29 @@ body
 			.container-fluid
 				.row
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--fanera.png", alt="Фанера")
+						.goods__item.wow.fadeInDown
+							img.goods__img.img-responsive(src="img/goods--fanera.png", alt="Фанера")
 							h3.goods__title Фанера 
 								span ФК, ФСФ, ФЛ
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--dsp.png", alt="ДСтП")
+						.goods__item.wow.fadeInDown(data-wow-delay=".2s")
+							img.goods__img.img-responsive(src="img/goods--dsp.png", alt="ДСтП")
 							h3.goods__title ДСтП
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--lvl.png", alt="ЛВЛ брус")
+						.goods__item.wow.fadeInDown(data-wow-delay=".4s")
+							img.goods__img.img-responsive(src="img/goods--lvl.png", alt="ЛВЛ брус")
 							h3.goods__title ЛВЛ-брус
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--doska.png", alt="Доска обрезная")
+						.goods__item.wow.fadeInDown
+							img.goods__img.img-responsive(src="img/goods--doska.png", alt="Доска обрезная")
 							h3.goods__title Доска <br>обрезная
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--pellets.png", alt="Топливные пеллеты")
+						.goods__item.wow.fadeInDown(data-wow-delay=".2s")
+							img.goods__img.img-responsive(src="img/goods--pellets.png", alt="Топливные пеллеты")
 							h3.goods__title Топливные <br>пеллеты
 					.col-xs-4
-						.goods__item
-							img.goods__img(src="img/goods--brickets.png", alt="Топливные брикеты")
+						.goods__item.wow.fadeInDown(data-wow-delay=".4s")
+							img.goods__img.img-responsive(src="img/goods--brickets.png", alt="Топливные брикеты")
 							h3.goods__title Топливные <br>брикеты
 
 	footer.footer
@@ -69,5 +69,11 @@ body
 
 				.col-xs-12
 					p.footer__copyright &#9400; Ruswood Trading, 2015
+
+
+	
+	script(src="js/main.min.js")
+	script.
+		new WOW().init();
 
 
