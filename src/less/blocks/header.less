@@ -1,5 +1,49 @@
 .header {
-	padding: 40px 0 40px;
+	padding: 10px 0 40px;
+
+	&__language {
+		float: right;
+		padding: 0 26px 5px 10px;
+		position: relative;
+
+		& a:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 5px;
+			width: 20px;
+			height: 20px;
+			background-size: contain;
+			opacity: .8;
+
+		}
+
+		&--en a:after {
+			background-image: url(../img/en.png);
+		}
+
+		&--ru a:after {
+			background-image: url(../img/ru.png);
+		}
+	}
+
+	&__language a {
+		text-decoration: none;
+		color: @green;
+		outline: none;
+		border-bottom: 1px solid;
+		font-size: 14px;
+
+		&:visited, &:active, &:focus {
+			color: @green;
+			text-decoration: none;
+		}
+
+		&:hover {
+			color: darken(@green, 20%);
+			text-decoration: none;
+		}
+	}
 
 	&__contacts {
 		text-align: right;

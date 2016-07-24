@@ -3391,7 +3391,61 @@ body
 }
 .header
 {
-    padding: 40px 0 40px;
+    padding: 10px 0 40px;
+}
+.header__language
+{
+    position: relative;
+
+    float: right;
+
+    padding: 0 26px 5px 10px;
+}
+.header__language a:after
+{
+    position: absolute;
+    top: 5px;
+    right: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+
+    opacity: .8;
+    background-size: contain;
+}
+.header__language--en a:after
+{
+    background-image: url(../img/en.png);
+}
+.header__language--ru a:after
+{
+    background-image: url(../img/ru.png);
+}
+.header__language a
+{
+    font-size: 14px;
+
+    text-decoration: none;
+
+    color: #4a8456;
+    border-bottom: 1px solid;
+    outline: none;
+}
+.header__language a:visited,
+.header__language a:active,
+.header__language a:focus
+{
+    text-decoration: none;
+
+    color: #4a8456;
+}
+.header__language a:hover
+{
+    text-decoration: none;
+
+    color: #25432b;
 }
 .header__contacts
 {
@@ -3588,6 +3642,25 @@ body
     font-size: 13px;
 
     color: #666;
+}
+.footer__language
+{
+    font-size: 13px;
+
+    text-align: right;
+}
+.footer__language a
+{
+    text-decoration: none;
+
+    color: #666;
+    border-bottom: 1px solid rgba(102, 102, 102, .5);
+    outline: none;
+}
+.footer__language a:hover
+{
+    color: #4a8456;
+    border-bottom: 1px solid rgba(74, 132, 86, .5);
 }
 .animated
 {
